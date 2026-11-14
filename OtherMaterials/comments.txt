@@ -5,3 +5,11 @@ Hi Angelo,
 I don't see the learnBoxLang folder. Were you able to do that?
 
 Dan
+
+Hi Dan,
+
+Thank you for your feedback and guidance. After many unsuccessful attempts, I was able to install the learnBoxLang package, and the folder is now in my repository.
+
+My sincere apologies,
+
+Angelo
