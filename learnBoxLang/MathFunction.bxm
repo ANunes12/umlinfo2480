@@ -1,0 +1,67 @@
+<h3>Math Functions</h3>
+<hr>Exercise: Using the function in the main article as a model, write a function that will multiply two numbers together. Call the function and pass in several different combination of numbers (i.e. <code>#addNumbers(5,3)# &lt;br/> #addNumbers(100,223)# </code> etc.) 
+
+<hr />
+
+<bx:function name="multiplyNumbers">
+    <bx:argument name="num1" type="numeric" required="true">
+    <bx:argument name="num2" type="numeric" required="true">
+
+    <bx:return arguments.num1 * arguments.num2>
+</bx:function>
+
+<bx:output>
+    5 * 3 = #multiplyNumbers(5,3)# <br>
+    10 * 4 = #multiplyNumbers(10,4)# <br>
+    100 * 223 = #multiplyNumbers(100,223)# <br>
+    8 * 7 = #multiplyNumbers(8,7)# <br>
+</bx:output>
+
+
+<hr />
+Exercise: Can you make a form that accepts two numbers, submits it to the same page and then uses the function to add the two numbers together? All the information you need is in these docs.
+
+<bx:function name="addNumbers">
+    <bx:argument name="num1" type="numeric" required="true">
+    <bx:argument name="num2" type="numeric" required="true">
+
+    <bx:return arguments.num1 + arguments.num2>
+</bx:function>
+
+<h3>Add Two Numbers</h3>
+
+<form action="" method="post">
+
+    <label for="num1">First Number:</label>
+    <input type="number"
+           id="num1"
+           name="num1"
+           step="any"
+           required>
+    <br><br>
+
+    <label for="num2">Second Number:</label>
+    <input type="number"
+           id="num2"
+           name="num2"
+           step="any"
+           required>
+    <br><br>
+
+    <input type="submit" value="Add Numbers">
+
+</form>
+
+<bx:if structKeyExists(form, "num1")
+    AND structKeyExists(form, "num2")>
+
+    <bx:set result = addNumbers(
+        val(form.num1),
+        val(form.num2)
+    )>
+
+    <bx:output>
+        <h3>Result: #result#</h3>
+    </bx:output>
+
+</bx:if>

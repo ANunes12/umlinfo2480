@@ -1,0 +1,153 @@
+<h3>My Array</h3>
+<p id="a07e67e4-5a02-4b59-ae4c-1c6ef8035771" class=""><strong>Exercise</strong>: Create some objects using the same model
+    you created on the MyObjects page. Populate three more of them with three more books from the 10 Books Exercise. Put each of the objects in its
+    own index in an Array and dump it out. Are you starting to see how an array of objects can be a powerful
+    thing? If not, no stress but stay tuned. I know that this exercise is repetitive. In a few screens we are
+    going to see how we can make the computer create the objects and arrays we want more easily and
+    automatically. For now though, just type it out.</p>
+
+
+<h3>My Array</h3>
+
+<bx:set allMyBooks = [
+
+    {
+        title: "Ninth House",
+        length: 480,
+        yearPublished: 2020,
+        publisher: {
+            name: "Flatiron Books"
+        },
+        format: "Paperback",
+        author: {
+            firstName: "Leigh",
+            lastName: "Bardugo"
+        },
+        genres: ["Dark Fantasy"],
+        language: "English",
+        condition: "Good",
+        publicationCountry: "United States",
+        price: 19.99
+    },
+
+    {
+        title: "Dune",
+        length: 896,
+        yearPublished: 1965,
+        publisher: {
+            name: "Ace Books"
+        },
+        format: "Paperback",
+        author: {
+            firstName: "Frank",
+            lastName: "Herbert"
+        },
+        genres: ["Science Fiction"],
+        language: "English",
+        condition: "Fair",
+        publicationCountry: "United States",
+        price: 20.00
+    },
+
+    {
+        title: "Burmese Days",
+        length: 287,
+        yearPublished: 1934,
+        publisher: {
+            name: "Harcourt. Inc"
+        },
+        format: "Paperback",
+        author: {
+            firstName: "George",
+            lastName: "Orwell"
+        },
+        genres: ["Historical Fiction"],
+        language: "English",
+        condition: "Good",
+        publicationCountry: "United States",
+        price: 18.99
+    },
+
+    {
+        title: "Eragon",
+        length: 544,
+        yearPublished: 2003,
+        publisher: {
+            name: "Knopf Books for Young Readers"
+        },
+        format: "Paperback",
+        author: {
+            firstName: "Christopher",
+            lastName: "Paolini"
+        },
+        genres: ["Fantasy"],
+        language: "English",
+        condition: "Fair",
+        publicationCountry: "United States",
+        price: 15.99
+    },
+
+    {
+        title: "Snow",
+        length: 304,
+        yearPublished: 2020,
+        publisher: {
+            name: "Hanover Square Press"
+        },
+        format: "Paperback",
+        author: {
+            firstName: "John",
+            lastName: "Banville"
+        },
+        genres: ["Literary Fiction"],
+        language: "English",
+        condition: "Great",
+        publicationCountry: "United States",
+        price: 16.99
+    }
+
+] />
+
+<bx:set totalCost = 0 />
+
+<bx:output>
+
+    <bx:loop array="#allMyBooks#" item="book">
+
+        <p><strong>Title:</strong> #book.title#</p>
+
+        <p><strong>Length:</strong> #book.length# pages</p>
+
+        <p><strong>Year Published:</strong> #book.yearPublished#</p>
+
+        <p><strong>Publisher:</strong> #book.publisher.name#</p>
+
+        <p><strong>Format:</strong> #book.format#</p>
+
+        <p><strong>Author:</strong>
+            #book.author.firstName# #book.author.lastName#
+        </p>
+
+        <p><strong>Genres:</strong> #book.genres.join(", ")#</p>
+
+        <p><strong>Language:</strong> #book.language#</p>
+
+        <p><strong>Book Condition:</strong> #book.condition#</p>
+
+        <p><strong>Publication Country:</strong> #book.publicationCountry#</p>
+
+        <p><strong>Price:</strong> $#numberFormat(book.price, "0.00")#</p>
+
+        <hr />
+
+        <bx:set totalCost = totalCost + book.price />
+
+    </bx:loop>
+
+    <h3>Total Cost: $#numberFormat(totalCost, "0.00")#</h3>
+
+</bx:output>
+
+
+
+

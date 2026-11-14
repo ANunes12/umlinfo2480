@@ -1,0 +1,47 @@
+<h1>My Objects</h1>
+<p>take one of your 10 Books in Excel books and create a BoxLang structure out of it's metadata. 
+    Use multiple structures to model as much of the metadata as you can including data from all four Excel Sheets 
+    (or SQL Tables). When you are done, dump out each of the objects you created.</p>
+
+
+<bx:set myBook = {
+    "title": "Ninth House",
+    "length": 480,
+    "yearPublished": 2020,
+    "author": {
+        "firstName": "Leigh",
+        "lastName": "Bardugo"
+    },
+    "publisher": {
+        "name": "Flatiron Books"
+    },
+    "genres": ["Dark Fantasy"],
+    "format": "Paperback",
+    "language": "English",
+    "bookCondition": "Good",
+    "publicationCountry": "United States"
+} />
+
+<bx:output>
+    Dot Notation: #myBook.title# by
+    #myBook.author.firstName# #myBook.author.lastName#
+    <br/>
+
+    Bracket Notation:
+    #myBook["title"]# by
+    #myBook["author"]["firstName"]#
+    #myBook["author"]["lastName"]#
+    <br/>
+
+    Mixed:
+    #myBook["title"]# by
+    #myBook.author.firstName#
+    #myBook["author"]["lastName"]#
+    <br/>
+
+    Genre: #myBook.genres[1]#
+    <br/><br/>
+</bx:output>
+
+<bx:dump var="#myBook#" />
+
